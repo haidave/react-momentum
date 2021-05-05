@@ -20,15 +20,15 @@ export const useDate = () => {
   });
 
   const hour = today.getHours();
-  const wish = `Good ${
-    (hour > 3 && hour < 12 && "morning") ||
-    (hour > 12 && hour < 17 && "afternoon") ||
-    (hour > 17 && hour < 22 && "evening") ||
+  const greeting = `Good ${
+    (hour > 3 && hour <= 12 && "morning") ||
+    (hour > 12 && hour <= 17 && "afternoon") ||
+    (hour > 17 && hour <= 22 && "evening") ||
     "night"
   }`;
 
   return {
     time,
-    wish,
+    greeting,
   };
 };

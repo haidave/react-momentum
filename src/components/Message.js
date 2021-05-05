@@ -10,11 +10,11 @@ const MessageContent = styled.div`
 const Message = () => {
   const name = "Hai";
 
-  const { wish } = useDate();
+  const { greeting } = useDate();
 
   return (
     <MessageContent>
-      {wish}, {name}.
+      {greeting}, {name}.
     </MessageContent>
   );
 };
