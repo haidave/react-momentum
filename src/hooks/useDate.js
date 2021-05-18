@@ -21,9 +21,9 @@ export const useDate = () => {
 
   const hour = today.getHours();
   const greeting = `Good ${
-    (hour > 3 && hour <= 12 && "morning") ||
-    (hour > 12 && hour <= 17 && "afternoon") ||
-    (hour > 17 && hour <= 22 && "evening") ||
+    (hour > 3 && hour < 12 && "morning") ||
+    (hour >= 12 && hour < 18 && "afternoon") ||
+    (hour >= 18 && hour < 23 && "evening") ||
     "night"
   }`;
 
