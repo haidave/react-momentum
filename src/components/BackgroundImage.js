@@ -13,21 +13,23 @@ const BackgroundImageEl = styled.div`
   background-repeat: no-repeat;
 `;
 
+const API_KEY = process.env.REACT_APP_UNSPLASH_API_KEY;
+
 const BackgroundImage = () => {
   const [image, setImage] = useState("");
 
   useEffect(() => {
-    axios
-      .get(
-        "https://api.unsplash.com/photos/?client_id=fAvvaPEgZYU597qOzo9qt5DeATqISeFM_KSo5BJNlB4"
-      )
-      .then((res) => {
-        setImage(res.data[0].urls.full);
-        console.log(res.data[0].urls.full);
-      })
-      .catch((err) => {
-        console.log("Error during fetching", err);
-      });
+    const fetchData = async () => {
+      const url = `https://api.unsplash.com/photos/?client_id=${API_KEY}`;
+
+      const { data } = await axios.get(url);
+
+      const imageSrc = data[0].urls.full;
+
+      setImage(imageSrc);
+    };
+
+    fetchData();
   }, []);
 
   return (
